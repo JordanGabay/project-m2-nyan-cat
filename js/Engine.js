@@ -68,6 +68,56 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-    return false;
+    let isDead = false;
+    this.enemies.forEach(enemy => {
+      if (enemy.x === this.player.x && enemy.y + ENEMY_HEIGHT > this.player.getY()) {
+        isDead = true;
+        return;
+      }
+    });
+    return isDead;
   };
 }
+
+  
+// Start and Restart
+
+
+  var button = document.createElement('button');
+  button.innerHTML = 'Start';
+
+  var body = document.getElementsByTagName('body')[0];
+  body.appendChild(button);
+
+  button.addEventListener('click', function() {
+    alert('did something');
+  });
+
+var myElements = document.querySelector('button');
+myElements.style.background = 'blue';
+myElements.style.marginLeft = '100';
+myElements.style.marginTop = '200';
+myElements.style.fontSize ='100';
+myElements.style.borderRadius ='10px';
+
+var button2 = document.createElement('button2');
+button2.innerHTML = 'Restart';
+
+
+var body = document.getElementsByTagName('body')[0];
+body.appendChild(button2);
+button2.addEventListener('click', function refreshPage() {
+  if(confirm('are you sure, you want to try again?')) {
+    location.reload();
+  }
+});
+
+var myElements = document.querySelector('button2');
+myElements.style.background = 'blue';
+myElements.style.marginLeft = '100';
+myElements.style.marginTop = '200';
+myElements.style.fontSize = '100';
+myElements.style.borderRadius = '10px';
+
+
+ 
