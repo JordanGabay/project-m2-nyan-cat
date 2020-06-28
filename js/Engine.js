@@ -84,40 +84,53 @@ class Engine {
 
 
   var button = document.createElement('button');
-  button.innerHTML = 'Start';
+  button.innerHTML = 'Restart';
 
   var body = document.getElementsByTagName('body')[0];
   body.appendChild(button);
 
-  button.addEventListener('click', function() {
-    alert('did something');
+  button.addEventListener('click', function refreshPage() {
+    if(confirm('Are you sure you want to try again?')) {
+      location.reload();
+    }
   });
 
 var myElements = document.querySelector('button');
 myElements.style.background = 'blue';
-myElements.style.marginLeft = '100';
+myElements.style.marginLeft = '300';
 myElements.style.marginTop = '200';
 myElements.style.fontSize ='100';
 myElements.style.borderRadius ='10px';
 
-var button2 = document.createElement('button2');
-button2.innerHTML = 'Restart';
+
+// var button2 = document.createElement('button2');
+// button2.innerHTML = 'Restart';
 
 
-var body = document.getElementsByTagName('body')[0];
-body.appendChild(button2);
-button2.addEventListener('click', function refreshPage() {
-  if(confirm('are you sure, you want to try again?')) {
-    location.reload();
-  }
-});
+// var body = document.getElementsByTagName('body')[0];
+// body.appendChild(button2);
+// button2.addEventListener('click', function refreshPage() {
+//   if(confirm('are you sure, you want to try again?')) {
+//     location.reload();
+//   }
+// });
 
-var myElements = document.querySelector('button2');
-myElements.style.background = 'blue';
-myElements.style.marginLeft = '100';
-myElements.style.marginTop = '200';
-myElements.style.fontSize = '100';
-myElements.style.borderRadius = '10px';
+// var myElements = document.querySelector('button2');
+// myElements.style.background = 'blue';
+// myElements.style.marginLeft = '100';
+// myElements.style.marginTop = '200';
+// myElements.style.fontSize = '100';
+// myElements.style.borderRadius = '10px';
 
 
- 
+
+
+
+//Creating a timer for how long you're alive.
+
+var sec = 0;
+    function pad ( timer ) { return timer > 9 ? timer : "0" + timer; }
+    setInterval( function(){
+        document.getElementById("seconds").innerHTML=pad(++sec%60);
+        document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+    }, 1000);

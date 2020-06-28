@@ -1,0 +1,36 @@
+h1 {
+    color:blue;
+    margin-left: 500px;
+    text-align: center;
+    justify-content: center;
+    margin-top: -300;
+}
+
+h2 {
+    color:blue;
+    margin-left: 500px;
+    text-align: center;
+}
+
+h3 {
+    color:blue;
+    margin-left: 500px;
+    text-align: center;
+}
+
+.keys {
+    width: 20%;
+    margin-left: 600px;
+}
+
+.minutes {
+    color:red;
+}
+
+.seconds {
+    color:red;
+}
+
+body {
+    background-image: url(images/background.png);
+}
