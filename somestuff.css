@@ -1,36 +1,57 @@
 h1 {
-    color:blue;
+    color:black;
     margin-left: 500px;
-    text-align: center;
+    text-align: right;
     justify-content: center;
-    margin-top: -300;
+    margin-top: -260;
+    font-family: 'poppins';
 }
 
 h2 {
-    color:blue;
+    color:black;
     margin-left: 500px;
-    text-align: center;
+    text-align: right;
+    font-family: 'poppins';
 }
 
 h3 {
-    color:blue;
+    color:black;
     margin-left: 500px;
-    text-align: center;
+    text-align: right;
+    font-family: 'poppins';
+}
+
+h4 {
+    font-size: 20px;
+    color:black;
+    margin-top: 30px;
+    font-family: 'poppins';
 }
 
 .keys {
     width: 20%;
     margin-left: 600px;
+    align-items: right;
+    float: right;
 }
 
 .minutes {
-    color:red;
+    color:black;
+    font-size: 2em;
+    padding-left: 2%;
 }
 
 .seconds {
-    color:red;
+    color:black;
+    font-size: 2em;
 }
 
 body {
     background-image: url(images/background.png);
+}
+
+.kh3 {
+    margin-left: 600px;
+    margin-top: -480;
+    align-items: center;
 }

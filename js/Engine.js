@@ -96,11 +96,12 @@ class Engine {
   });
 
 var myElements = document.querySelector('button');
-myElements.style.background = 'blue';
+myElements.style.background = 'darkgrey';
 myElements.style.marginLeft = '300';
-myElements.style.marginTop = '200';
+myElements.style.marginTop = '00';
 myElements.style.fontSize ='100';
 myElements.style.borderRadius ='10px';
+myElements.style.fontFamily = 'poppins';
 
 
 // var button2 = document.createElement('button2');
@@ -134,3 +135,8 @@ var sec = 0;
         document.getElementById("seconds").innerHTML=pad(++sec%60);
         document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
     }, 1000);
+
+//Twilight Town Music
+
+    var audio = new Audio('twilighttown.mp3');
+audio.play();

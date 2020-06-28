@@ -62,5 +62,5 @@ const addBackground = (root) => {
   whiteBox.style.height = `${ENEMY_HEIGHT}px`;
   whiteBox.style.width = `${GAME_WIDTH}px`;
   whiteBox.style.background = '#fff';
-  root.append(whiteBox);
+  // root.append(whiteBox);
 };
