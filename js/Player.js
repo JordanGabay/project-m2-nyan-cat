@@ -26,6 +26,20 @@ class Player {
     this.domElement.style.marginTop = '-20';
     this.domElement.style.zIndex = '10';
     root.appendChild(this.domElement);
+
+    // Creating a DOM node for the shooting (bullets). Added the kingdomkey image to shoot a keyblade. 
+
+    this.canShoot = false;
+    this.bulletDomElement = document.createElement('img');
+    this.bulletDomElement.src = 'images/kingdomkey2.png';
+    this.bulletDomElement.style.position = 'absolute';
+    this.bulletDomElement.style.left = `${this.x + 30}px`;
+    this.bulletDomElement.style.top = `${this.bulletY}px`;
+    this.bulletY = y - 40;
+    this.baseBulletY = y - 40;
+    this.bulletDomElement.style.zIndex = '10';
+    this.bulletDomElement.style.visibility = 'hidden';
+    root.appendChild(this.bulletDomElement);
   }
 
   // This method will be called when the user presses the left key. See in Engine.js
@@ -36,6 +50,7 @@ class Player {
     }
 
     this.domElement.style.left = `${this.x}px`;
+    if(!this.canShoot) this.bulletDomElement.style.left = `${this.x + 30}px`;
   }
 
   // We do the same thing for the right key. See Engine.js to see when this happens.
@@ -44,5 +59,9 @@ class Player {
       this.x = this.x + PLAYER_WIDTH;
     }
     this.domElement.style.left = `${this.x}px`;
+    if(!this.canShoot) this.bulletDomElement.style.left = `${this.x + 30}px`;
+  }
+  shootBullet() {
+    this.canShoot = true;
   }
 }

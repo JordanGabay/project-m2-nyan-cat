@@ -18,6 +18,10 @@ const keydownHandler = (event) => {
   if (event.code === 'ArrowRight') {
     gameEngine.player.moveRight();
   }
+  // Using the space key to shoot our keys / bullets.
+  if (event.code === 'Space') {
+    gameEngine.player.shootBullet();
+  }
 };
 
 // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.

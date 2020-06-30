@@ -23,4 +23,8 @@ class Text {
   update(txt) {
     this.domElement.innerText = txt;
   }
+
+  delete () {
+    this.domElement.innerText ="";
+  }
 }

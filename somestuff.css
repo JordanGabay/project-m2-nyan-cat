@@ -1,48 +1,48 @@
 h1 {
     color:black;
-    margin-left: 500px;
-    text-align: right;
+    margin-left: 550px;
+    text-align: left;
     justify-content: center;
     margin-top: -260;
     font-family: 'poppins';
+    align-items: center;
 }
 
 h2 {
     color:black;
-    margin-left: 500px;
-    text-align: right;
+    margin-left: 550px;
+    text-align: left;
     font-family: 'poppins';
 }
 
 h3 {
     color:black;
-    margin-left: 500px;
-    text-align: right;
+    margin-left: 550px;
+    text-align: left;
     font-family: 'poppins';
 }
 
 h4 {
     font-size: 20px;
-    color:black;
-    margin-top: 30px;
+    color:white;
+    margin-top: -150px;
     font-family: 'poppins';
 }
 
 .keys {
     width: 20%;
     margin-left: 600px;
-    align-items: right;
-    float: right;
+    align-items: left;
 }
 
 .minutes {
-    color:black;
+    color:white;
     font-size: 2em;
     padding-left: 2%;
 }
 
 .seconds {
-    color:black;
+    color:white;
     font-size: 2em;
 }
 
@@ -52,6 +52,7 @@ body {
 
 .kh3 {
     margin-left: 600px;
-    margin-top: -480;
+    margin-top: -580;
     align-items: center;
 }
+

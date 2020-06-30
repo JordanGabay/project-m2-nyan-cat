@@ -16,6 +16,12 @@ class Engine {
     this.enemies = [];
     // We add the background image to the game
     addBackground(this.root);
+    // Creating a score property
+    this.score = 0;
+    //Text 
+    this.scoreText = new Text(document.getElementById('app'), '20px', '20px');
+    this.resultText= new Text(document.getElementById('app'), '85px', '100px');
+    this.scoreText.update(this.score);
   }
 
   // The gameLoop will run every few milliseconds. It does several things
@@ -43,9 +49,13 @@ class Engine {
     // We use filter to accomplish this.
     // Remember: this.enemies only contains instances of the Enemy class.
     this.enemies = this.enemies.filter((enemy) => {
-      return !enemy.destroyed;
+      if(enemy.destroyed === true) {
+        this.score = this.score +1;
+        this.scoreText.update(this.score);
+        return false;
+      } else if(enemy.destroyed === false) {return true;}
     });
-
+  
     // We need to perform the addition of enemies until we have enough enemies.
     while (this.enemies.length < MAX_ENEMIES) {
       // We find the next available spot and, using this spot, we create an enemy.
@@ -59,6 +69,19 @@ class Engine {
     if (this.isPlayerDead()) {
       window.alert('Game over');
       return;
+    }
+
+    // Creating a shooting (bullet) sort of thing.
+    if(this.player.canShoot) {
+      if(this.player.bulletY < 0) {
+        this.player.bulletY = this.player.baseBulletY;
+        this.player.bulletDomElement.style.left = `${this.player.x + 30}px`
+        this.player.bulletDomElement.style.visibility = 'hidden';
+        this.player.canShoot = false;
+      } else
+      this.player.bulletDomElement.style.visibility = 'unset';
+      this.player.bulletY -= timeDiff * 1;
+      this.player.bulletDomElement.style.top = `${this.player.bulletY}px`;
     }
 
     // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
@@ -80,8 +103,7 @@ class Engine {
 }
 
   
-// Start and Restart
-
+// Restart Button
 
   var button = document.createElement('button');
   button.innerHTML = 'Restart';
@@ -97,35 +119,11 @@ class Engine {
 
 var myElements = document.querySelector('button');
 myElements.style.background = 'darkgrey';
-myElements.style.marginLeft = '300';
-myElements.style.marginTop = '00';
-myElements.style.fontSize ='100';
+myElements.style.marginLeft = '-20';
+myElements.style.marginTop = '-20';
+myElements.style.fontSize ='50';
 myElements.style.borderRadius ='10px';
 myElements.style.fontFamily = 'poppins';
-
-
-// var button2 = document.createElement('button2');
-// button2.innerHTML = 'Restart';
-
-
-// var body = document.getElementsByTagName('body')[0];
-// body.appendChild(button2);
-// button2.addEventListener('click', function refreshPage() {
-//   if(confirm('are you sure, you want to try again?')) {
-//     location.reload();
-//   }
-// });
-
-// var myElements = document.querySelector('button2');
-// myElements.style.background = 'blue';
-// myElements.style.marginLeft = '100';
-// myElements.style.marginTop = '200';
-// myElements.style.fontSize = '100';
-// myElements.style.borderRadius = '10px';
-
-
-
-
 
 //Creating a timer for how long you're alive.
 
@@ -136,7 +134,7 @@ var sec = 0;
         document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
     }, 1000);
 
-//Twilight Town Music
+// Twilight Town Music
 
     var audio = new Audio('twilighttown.mp3');
 audio.play();
